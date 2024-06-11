@@ -39,8 +39,7 @@
               </Group>
               <EmptySpace type="unrelated" pref="82" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="smallImage" min="-2" pref="434" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="descGame" min="-2" pref="76" max="-2" attributes="0"/>
                           <Component id="price" min="-2" pref="73" max="-2" attributes="0"/>
@@ -55,6 +54,7 @@
                           <Component id="categoryField" alignment="0" min="-2" pref="276" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="smallImage" min="-2" pref="434" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
           </Group>
@@ -65,16 +65,14 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="gameName" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="bigImage" min="-2" pref="363" max="-2" attributes="0"/>
-                      <EmptySpace pref="128" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="smallImage" min="-2" pref="288" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="smallImage" min="-2" pref="253" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="descGame" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="descGameField" alignment="3" min="-2" pref="86" max="-2" attributes="0"/>
@@ -89,9 +87,9 @@
                           <Component id="platform" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="platformField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="categoryField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="category" alignment="3" min="-2" max="-2" attributes="0"/>

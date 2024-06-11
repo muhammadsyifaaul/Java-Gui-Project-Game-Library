@@ -15,7 +15,7 @@ import model.Game;
 import model.GameStore;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import java.awt.Color;
 
 
 /**
@@ -33,6 +33,8 @@ public class ExploreFrame extends javax.swing.JFrame {
 
     public ExploreFrame() {
          initComponents();
+         JPanel jPanel1 = new JPanel();
+        jPanel1.setBackground(new Color(0, 0, 0));
         gameStore = new GameStore();
         listModel = new DefaultListModel<>();
         jList1.setModel(listModel);

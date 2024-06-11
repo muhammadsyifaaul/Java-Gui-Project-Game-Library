@@ -8,6 +8,8 @@ import model.GameStore;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,55 @@ import java.util.List;
         initializeGameIdList();
         loadGameImages();
     }
-    
+    private void initializeGameIdList() {
+        gameIdList = List.of(1, 2, 5, 6, 7, 10, 11);
+    }
+
+    /**
+     * Load the game images and set up click listeners.
+     */
+    private void loadGameImages() {
+        List<JLabel> labels = List.of(jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7);
+
+        for (int i = 0; i < gameIdList.size(); i++) {
+            Game game = gameStore.getGameById(gameIdList.get(i));
+            if (game != null) {
+                try {
+                    URL url = new URL(game.getGambar());
+                    ImageIcon originalIcon = new ImageIcon(url);
+                    Image scaledImage = originalIcon.getImage().getScaledInstance(labels.get(i).getWidth(), labels.get(i).getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon scaledIcon = new ImageIcon(scaledImage);
+                    labels.get(i).setIcon(scaledIcon);
+                    labels.get(i).setText(""); // Remove default text
+                    int gameId = game.getId(); // Get the game ID for use in the listener
+                    labels.get(i).addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            showDetailForm(gameId);
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * Show the detail form for a specific game.
+     *
+     * @param gameId The ID of the game to display.
+     */
+    private void showDetailForm(int gameId) {
+        Game game = gameStore.getGameById(gameId);
+        if (game != null) {
+            DetailForm detailForm = new DetailForm();
+            detailForm.setGameDetails(game);
+            detailForm.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Game not found!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,12 +101,16 @@ import java.util.List;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(23, 43, 93));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(12, 90, 110));
+        jPanel1.setForeground(new java.awt.Color(0, 93, 153));
 
         jLabel1.setBackground(new java.awt.Color(102, 0, 255));
 
         jLabel4.setBackground(new java.awt.Color(102, 0, 255));
 
+        exploreButton.setBackground(new java.awt.Color(102, 102, 102));
+        exploreButton.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        exploreButton.setForeground(new java.awt.Color(204, 204, 204));
         exploreButton.setText("EXPLORE GAME");
         exploreButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,8 +151,8 @@ import java.util.List;
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(exploreButton)
+                .addGap(83, 83, 83)
+                .addComponent(exploreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(180, 180, 180)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -138,30 +192,8 @@ import java.util.List;
         exploreFrame.setVisible(true);
     }//GEN-LAST:event_exploreButtonActionPerformed
 
- private void initializeGameIdList() {
-        gameIdList = List.of(1, 2, 5, 6, 7,10,11);
-    }
 
-    private void loadGameImages() {
-        List<JLabel> labels = List.of(jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7);
 
-        for (int i = 0; i < gameIdList.size(); i++) {
-            Game game = gameStore.getGameById(gameIdList.get(i));
-            if (game != null) {
-                try {
-                    URL url = new URL(game.getGambar());
-                    System.out.println("Loading image from URL: " + url); // Debugging output
-                    ImageIcon originalIcon = new ImageIcon(url);
-                    Image scaledImage = originalIcon.getImage().getScaledInstance(labels.get(i).getWidth(), labels.get(i).getHeight(), Image.SCALE_SMOOTH);
-                    ImageIcon scaledIcon = new ImageIcon(scaledImage);
-                    labels.get(i).setIcon(scaledIcon);
-                    labels.get(i).setText(""); // Remove default text
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
     
     /**
      * @param args the command line arguments
