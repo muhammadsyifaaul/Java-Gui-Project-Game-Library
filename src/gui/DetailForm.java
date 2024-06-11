@@ -19,14 +19,14 @@ import model.GameStore;
  */
 public class DetailForm extends javax.swing.JFrame {
     private Game game;
-
+    private JFrame previousFrame;
     // Metode initComponents() dan lainnya disini tidak perlu diubah
 
     public void setGameDetails(Game game) {
 
         this.game = game;
         gameName.setText(game.getName());
-        descGameField.setText(game.getDescription());
+        descField.setText(game.getDescription());
         priceField.setText(String.valueOf(game.getPrice()));
         platformField.setText(game.getPlatform());
         List<String> categories = game.getCategory();
@@ -65,6 +65,9 @@ public class DetailForm extends javax.swing.JFrame {
 
     public DetailForm() {
         initComponents();
+        descField.setLineWrap(true);
+    descField.setWrapStyleWord(true);
+    this.previousFrame = previousFrame;
     }
 
     /**
@@ -78,7 +81,6 @@ public class DetailForm extends javax.swing.JFrame {
 
         gameName = new javax.swing.JLabel();
         descGame = new javax.swing.JLabel();
-        descGameField = new javax.swing.JTextField();
         price = new javax.swing.JLabel();
         priceField = new javax.swing.JTextField();
         platform = new javax.swing.JLabel();
@@ -87,27 +89,30 @@ public class DetailForm extends javax.swing.JFrame {
         categoryField = new javax.swing.JTextField();
         bigImage = new javax.swing.JLabel();
         smallImage = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        descField = new javax.swing.JTextArea();
+        backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(16, 79, 101));
 
-        gameName.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        gameName.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        gameName.setForeground(new java.awt.Color(204, 204, 204));
         gameName.setText("NameGame");
 
+        descGame.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        descGame.setForeground(new java.awt.Color(204, 204, 204));
         descGame.setText("Description :");
 
-        descGameField.setEditable(false);
-        descGameField.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
-        descGameField.setText("desc");
-        descGameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                descGameFieldActionPerformed(evt);
-            }
-        });
-
+        price.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        price.setForeground(new java.awt.Color(204, 204, 204));
         price.setText("Price :");
 
         priceField.setEditable(false);
+        priceField.setBackground(new java.awt.Color(12, 90, 110));
+        priceField.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        priceField.setForeground(new java.awt.Color(204, 204, 204));
         priceField.setText("price");
         priceField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,9 +120,14 @@ public class DetailForm extends javax.swing.JFrame {
             }
         });
 
+        platform.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        platform.setForeground(new java.awt.Color(204, 204, 204));
         platform.setText("Platform:");
 
         platformField.setEditable(false);
+        platformField.setBackground(new java.awt.Color(12, 90, 110));
+        platformField.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        platformField.setForeground(new java.awt.Color(204, 204, 204));
         platformField.setText("Platform");
         platformField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,9 +135,14 @@ public class DetailForm extends javax.swing.JFrame {
             }
         });
 
+        category.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        category.setForeground(new java.awt.Color(204, 204, 204));
         category.setText("Category:");
 
         categoryField.setEditable(false);
+        categoryField.setBackground(new java.awt.Color(12, 90, 110));
+        categoryField.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        categoryField.setForeground(new java.awt.Color(204, 204, 204));
         categoryField.setText("category");
         categoryField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +151,34 @@ public class DetailForm extends javax.swing.JFrame {
         });
 
         bigImage.setBackground(new java.awt.Color(33, 124, 161));
+
+        jPanel1.setBackground(new java.awt.Color(12, 90, 110));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1392, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 707, Short.MAX_VALUE)
+        );
+
+        descField.setEditable(false);
+        descField.setBackground(new java.awt.Color(12, 90, 110));
+        descField.setColumns(20);
+        descField.setFont(new java.awt.Font("Segoe UI Black", 1, 10)); // NOI18N
+        descField.setForeground(new java.awt.Color(204, 204, 204));
+        descField.setRows(5);
+        jScrollPane1.setViewportView(descField);
+
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -149,22 +192,31 @@ public class DetailForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(bigImage, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(smallImage, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(descGame, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(platform, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(71, 71, 71)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(descGameField, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(platformField, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(categoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(smallImage, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(238, 238, 238))
+                            .addComponent(categoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(platformField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(descGame, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(220, 220, 220))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,28 +224,32 @@ public class DetailForm extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(gameName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(gameName, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bigImage, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(smallImage, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(descGame)
-                            .addComponent(descGameField, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(smallImage, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(descGame))
+                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(price)
                             .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
+                        .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(platform)
                             .addComponent(platformField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(categoryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(category))
-                .addGap(79, 79, 79))
+                    .addComponent(category)
+                    .addComponent(categoryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -211,9 +267,13 @@ public class DetailForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_priceFieldActionPerformed
 
-    private void descGameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descGameFieldActionPerformed
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_descGameFieldActionPerformed
+        this.dispose();
+        if (previousFrame != null) {
+            previousFrame.setVisible(true);
+        }
+    }//GEN-LAST:event_backBtnActionPerformed
     
     /**
      * @param args the command line arguments
@@ -251,12 +311,15 @@ public class DetailForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
     private javax.swing.JLabel bigImage;
     private javax.swing.JLabel category;
     private javax.swing.JTextField categoryField;
+    private javax.swing.JTextArea descField;
     private javax.swing.JLabel descGame;
-    private javax.swing.JTextField descGameField;
     private javax.swing.JLabel gameName;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel platform;
     private javax.swing.JTextField platformField;
     private javax.swing.JLabel price;

@@ -77,10 +77,14 @@ public class ExploreFrame extends javax.swing.JFrame {
         searchByPrice = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 0, 51));
 
+        searchField.setBackground(new java.awt.Color(102, 102, 102));
+        searchField.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        searchField.setForeground(new java.awt.Color(204, 204, 204));
         searchField.setText("Search Game");
         searchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +92,9 @@ public class ExploreFrame extends javax.swing.JFrame {
             }
         });
 
+        searchByCategory.setBackground(new java.awt.Color(102, 102, 102));
+        searchByCategory.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        searchByCategory.setForeground(new java.awt.Color(204, 204, 204));
         searchByCategory.setText("Search By Category");
         searchByCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +102,9 @@ public class ExploreFrame extends javax.swing.JFrame {
             }
         });
 
+        searchByName.setBackground(new java.awt.Color(102, 102, 102));
+        searchByName.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        searchByName.setForeground(new java.awt.Color(204, 204, 204));
         searchByName.setText("Search By Name");
         searchByName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +112,9 @@ public class ExploreFrame extends javax.swing.JFrame {
             }
         });
 
-        searchByPrice.setForeground(new java.awt.Color(26, 106, 210));
+        searchByPrice.setBackground(new java.awt.Color(102, 102, 102));
+        searchByPrice.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        searchByPrice.setForeground(new java.awt.Color(204, 204, 204));
         searchByPrice.setText("Search By Price");
         searchByPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,56 +122,70 @@ public class ExploreFrame extends javax.swing.JFrame {
             }
         });
 
+        jList1.setBackground(new java.awt.Color(12, 121, 136));
+        jList1.setBorder(null);
         jList1.setModel(new DefaultListModel<>()
         );
         jScrollPane1.setViewportView(jList1);
+
+        jPanel1.setBackground(new java.awt.Color(12, 90, 110));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1316, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 538, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(394, Short.MAX_VALUE)
+                .addContainerGap(329, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(374, 374, 374))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(searchByName, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)
                         .addComponent(searchByPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(72, 72, 72)
                         .addComponent(searchByCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(337, 337, 337))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(282, 282, 282)
-                    .addComponent(searchByName, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(815, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(141, Short.MAX_VALUE)
+                    .addContainerGap(168, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(204, Short.MAX_VALUE)))
+                    .addContainerGap(231, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchByPrice)
-                    .addComponent(searchByCategory))
-                .addContainerGap(402, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(115, 115, 115)
-                    .addComponent(searchByName)
-                    .addContainerGap(400, Short.MAX_VALUE)))
+                    .addComponent(searchByCategory)
+                    .addComponent(searchByName))
+                .addContainerGap(401, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(196, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(40, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -225,9 +251,11 @@ private void displayResults(List<Game> games) {
     }
 
     private void openDetailForm(Game game) {
+        
         DetailForm detailForm = new DetailForm();
         detailForm.setGameDetails(game);
         detailForm.setVisible(true);
+        this.dispose();
     }
 
 
@@ -271,6 +299,7 @@ private void displayResults(List<Game> games) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<ImageIcon> jList1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton searchByCategory;
     private javax.swing.JButton searchByName;
