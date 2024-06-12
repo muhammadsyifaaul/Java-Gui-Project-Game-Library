@@ -23,9 +23,6 @@ import java.awt.Color;
  * @author Muhammad syifaaul
  */
 public class ExploreFrame extends javax.swing.JFrame {
-    /**
-     * Creates new form ExploreFrame
-     */
     private DefaultListModel<ImageIcon> listModel;
     private GameStore gameStore;
     private List<Game> games; 
@@ -42,22 +39,21 @@ public class ExploreFrame extends javax.swing.JFrame {
         jList1.setVisibleRowCount(-1);
         jList1.setLayout(new GridLayout(0, 4));
 
-        // Mouse listener untuk JList
         jList1.addMouseListener(new MouseAdapter() {
     public void mouseClicked(MouseEvent evt) {
         JList list = (JList) evt.getSource();
         if (evt.getClickCount() == 1) {
             int index = list.locationToIndex(evt.getPoint());
             if (index >= 0) {
-                Game selectedGame = games.get(index); // Menggunakan variabel games yang dideklarasikan secara global
+                Game selectedGame = games.get(index); 
                 openDetailForm(selectedGame);
             }
         }
     }
 });
 
-        // Isi data game
-        games = gameStore.getAllGames(); // Mengisi variabel games
+
+        games = gameStore.getAllGames(); 
         displayResults(games);
 
     }
@@ -85,7 +81,6 @@ public class ExploreFrame extends javax.swing.JFrame {
         searchField.setBackground(new java.awt.Color(102, 102, 102));
         searchField.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         searchField.setForeground(new java.awt.Color(204, 204, 204));
-        searchField.setText("Search Game");
         searchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchFieldActionPerformed(evt);
@@ -185,7 +180,7 @@ public class ExploreFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(40, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -198,7 +193,7 @@ public class ExploreFrame extends javax.swing.JFrame {
     private void searchByCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByCategoryActionPerformed
 
         String category = searchField.getText();
-    games = gameStore.searchByCategory(category);  // Perbarui variabel games
+    games = gameStore.searchByCategory(category);  
     displayResults(games);
     }//GEN-LAST:event_searchByCategoryActionPerformed
 
@@ -206,7 +201,7 @@ public class ExploreFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
          try {
         int price = Integer.parseInt(searchField.getText());
-        games = gameStore.searchByPrice(price);  // Perbarui variabel games
+        games = gameStore.searchByPrice(price);  
         displayResults(games);
     } catch (NumberFormatException e) {
         JOptionPane.showMessageDialog(this, "Please enter a valid price.");
@@ -215,7 +210,7 @@ public class ExploreFrame extends javax.swing.JFrame {
 
     private void searchByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByNameActionPerformed
         String name = searchField.getText();
-    games = gameStore.searchByName(name);  // Perbarui variabel games
+    games = gameStore.searchByName(name);  
     displayResults(games);
     }//GEN-LAST:event_searchByNameActionPerformed
  
@@ -237,11 +232,11 @@ private void displayResults(List<Game> games) {
             URL url = new URL(imageUrl);
             ImageIcon originalIcon = new ImageIcon(url);
         
-            // Tentukan ukuran yang diinginkan
-            int width = 170;  // Lebar yang diinginkan
-            int height = 120; // Tinggi yang diinginkan
+     
+            int width = 170;  
+            int height = 120; 
 
-            // Ubah ukuran gambar
+
             Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
             return new ImageIcon(scaledImage);
         } catch (Exception ex) {
@@ -255,7 +250,7 @@ private void displayResults(List<Game> games) {
         DetailForm detailForm = new DetailForm();
         detailForm.setGameDetails(game);
         detailForm.setVisible(true);
-        this.dispose();
+
     }
 
 

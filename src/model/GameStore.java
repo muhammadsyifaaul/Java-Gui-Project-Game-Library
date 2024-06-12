@@ -25,7 +25,7 @@ public class GameStore {
                     rs.getString("category").split(","), 
                     rs.getString("platform"), 
                     rs.getString("gambar"), 
-                    rs.getString("description")  // Ambil kolom description
+                    rs.getString("description") 
                 ));
             }
         } catch (SQLException e) {
@@ -50,7 +50,7 @@ public class GameStore {
                     rs.getString("category").split(","), 
                     rs.getString("platform"), 
                     rs.getString("gambar"), 
-                    rs.getString("description")  // Ambil kolom description
+                    rs.getString("description")  
                 ));
             }
         } catch (SQLException e) {
@@ -75,7 +75,7 @@ public class GameStore {
                     rs.getString("category").split(","), 
                     rs.getString("platform"), 
                     rs.getString("gambar"), 
-                    rs.getString("description")  // Ambil kolom description
+                    rs.getString("description")  
                 ));
             }
         } catch (SQLException e) {
@@ -100,7 +100,7 @@ public class GameStore {
                     rs.getString("category").split(","), 
                     rs.getString("platform"), 
                     rs.getString("gambar"), 
-                    rs.getString("description")  // Ambil kolom description
+                    rs.getString("description")  
                 );
             }
         } catch (SQLException e) {

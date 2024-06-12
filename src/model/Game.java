@@ -11,7 +11,7 @@ public class Game {
     private int price;
     private List<String> category;
     private String platform;
-    private String gambar; // Atribut untuk gambar
+    private String gambar; 
     private String description;
 
     public Game(int id, String name, int stock, int price, String[] category, String platform, String gambar, String description) {
