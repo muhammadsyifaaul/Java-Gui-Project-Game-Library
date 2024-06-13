@@ -5,11 +5,10 @@
 package gui;
 import javax.swing.*;
 import java.awt.*;
-
 import java.net.URL;
 import java.util.List;
 import model.Game;
-import model.GameStore;
+
 /**
  *
  * @author Muhammad syifaaul

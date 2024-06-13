@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameStore {
+public class GameLibrary {
     public List<Game> searchByName(String name) {
         List<Game> foundItems = new ArrayList<>();
         try (Connection connection = DatabaseConnection.getConnection()) {

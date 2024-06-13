@@ -12,7 +12,7 @@ import java.awt.GridLayout;
 import java.net.URL;
 import java.util.List;
 import model.Game;
-import model.GameStore;
+import model.GameLibrary;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
@@ -24,7 +24,7 @@ import java.awt.Color;
  */
 public class ExploreFrame extends javax.swing.JFrame {
     private DefaultListModel<ImageIcon> listModel;
-    private GameStore gameStore;
+    private GameLibrary gameStore;
     private List<Game> games; 
 
 
@@ -32,7 +32,7 @@ public class ExploreFrame extends javax.swing.JFrame {
          initComponents();
          JPanel jPanel1 = new JPanel();
         jPanel1.setBackground(new Color(0, 0, 0));
-        gameStore = new GameStore();
+        gameStore = new GameLibrary();
         listModel = new DefaultListModel<>();
         jList1.setModel(listModel);
         jList1.setLayoutOrientation(JList.HORIZONTAL_WRAP);

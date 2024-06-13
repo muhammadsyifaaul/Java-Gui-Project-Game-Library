@@ -4,7 +4,7 @@
  */
 package gui;
 import model.Game;
-import model.GameStore;
+import model.GameLibrary;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author Muhammad syifaaul
  */public class MainFrame extends javax.swing.JFrame {
-    private GameStore gameStore = new GameStore();
+    private GameLibrary gameStore = new GameLibrary();
     private List<Integer> gameIdList = new ArrayList<>();
 
     /**
